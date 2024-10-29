@@ -5,9 +5,12 @@ import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { JwtModule } from '@nestjs/jwt';
 import { jwtConstants } from './constants';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import config from './ormconfig';
 
 @Module({
   imports: [
+    TypeOrmModule.forRoot({ ...config }),
     AuthModule,
     UserModule,
     JwtModule.register({
