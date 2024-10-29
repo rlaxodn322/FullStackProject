@@ -10,7 +10,7 @@ async function bootstrap() {
   app.use(helmet());
   app.enableCors();
   const config = new DocumentBuilder()
-    .setTitle('NestJS API')
+    .setTitle('Project NestJS API')
     .setDescription('NestJS API documentation')
     .setVersion('1.0')
     .build();
