@@ -9,8 +9,15 @@ export class AuthController {
   @Post('login')
   async login(@Body() user: any) {
     const payload = { username: user.username, sub: user.userId };
-    return {
-      access_token: await this.authService.generateToken(payload),
-    };
+    return this.authService
+      .generateToken(payload)
+      .then((access_token) => ({ access_token }))
+      .catch((error) => {
+        throw new Error('Failed to generate access token');
+      });
+    // return {
+
+    //   access_token: await this.authService.generateToken(payload),
+    // };
   }
 }
