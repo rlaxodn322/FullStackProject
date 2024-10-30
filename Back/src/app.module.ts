@@ -10,6 +10,7 @@ import { TodosController } from './todos/todos.controller';
 import { TodosService } from './todos/todos.service';
 import { TodosModule } from './todos/todos.module';
 import { NotificationsModule } from './notifications/notifications.module';
+import { NotesModule } from './notes/notes.module';
 import config from './ormconfig';
 
 @Module({
@@ -19,12 +20,14 @@ import config from './ormconfig';
     UserModule,
     TodosModule,
     NotificationsModule,
+    NotesModule,
     JwtModule.register({
       secret: jwtConstants.secret,
       signOptions: { expiresIn: '60s' },
     }),
     TodosModule,
     NotificationsModule,
+    NotesModule,
   ],
   controllers: [AppController, TodosController],
   providers: [AppService, TodosService],
