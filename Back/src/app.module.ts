@@ -6,6 +6,9 @@ import { UserModule } from './user/user.module';
 import { JwtModule } from '@nestjs/jwt';
 import { jwtConstants } from './constants';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { TodosController } from './todos/todos.controller';
+import { TodosService } from './todos/todos.service';
+import { TodosModule } from './todos/todos.module';
 import config from './ormconfig';
 
 @Module({
@@ -13,12 +16,14 @@ import config from './ormconfig';
     TypeOrmModule.forRoot({ ...config }),
     AuthModule,
     UserModule,
+    TodosModule,
     JwtModule.register({
       secret: jwtConstants.secret,
       signOptions: { expiresIn: '60s' },
     }),
+    TodosModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, TodosController],
+  providers: [AppService, TodosService],
 })
 export class AppModule {}
