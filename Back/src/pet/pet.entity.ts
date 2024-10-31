@@ -11,12 +11,18 @@ export class Pet {
   @Column()
   type: string;
 
-  @Column({ default: 0 })
+  @Column({ default: 100 })
   happiness: number;
 
-  @Column({ default: 0 })
-  humger: number;
+  @Column({ default: 100 })
+  hunger: number;
+
+  @Column({ default: 100 })
+  energy: number;
 
   @Column({ default: 0 })
-  energy: number;
+  level: number;
+
+  @Column({ default: 0 })
+  expreience: number;
 }
