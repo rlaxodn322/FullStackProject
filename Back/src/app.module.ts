@@ -18,6 +18,9 @@ import { MediaController } from './media/media.controller';
 import { MediaService } from './media/media.service';
 import { MediaModule } from './media/media.module';
 import { ProgressModule } from './progress/progress.module';
+import { EventsModule } from './events/events.module';
+import { ReservationsModule } from './reservations/reservations.module';
+import { FeedbacksModule } from './feedbacks/feedbacks.module';
 import config from './ormconfig';
 
 @Module({
@@ -36,6 +39,9 @@ import config from './ormconfig';
       signOptions: { expiresIn: '60s' },
     }),
     ProgressModule,
+    EventsModule,
+    ReservationsModule,
+    FeedbacksModule,
   ],
   controllers: [AppController],
   providers: [AppService],
