@@ -14,6 +14,9 @@ import { NotesModule } from './notes/notes.module';
 import { PetModule } from './pet/pet.module';
 import { AdventuresService } from './adventures/adventures.service';
 import { AdventuresModule } from './adventures/adventures.module';
+import { MediaController } from './media/media.controller';
+import { MediaService } from './media/media.service';
+import { MediaModule } from './media/media.module';
 import config from './ormconfig';
 
 @Module({
@@ -26,17 +29,13 @@ import config from './ormconfig';
     NotesModule,
     PetModule,
     AdventuresModule,
+    MediaModule,
     JwtModule.register({
       secret: jwtConstants.secret,
       signOptions: { expiresIn: '60s' },
     }),
-    TodosModule,
-    NotificationsModule,
-    NotesModule,
-    PetModule,
-    AdventuresModule,
   ],
-  controllers: [AppController, TodosController],
-  providers: [AppService, TodosService, AdventuresService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
