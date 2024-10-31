@@ -21,5 +21,3 @@ const config: TypeOrmModuleOptions = {
 };
 
 export default config;
-
-//entities: [`${__dirname}/**/*.entity{.ts,.js}`],

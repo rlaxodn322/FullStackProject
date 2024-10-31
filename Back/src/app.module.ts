@@ -11,6 +11,7 @@ import { TodosService } from './todos/todos.service';
 import { TodosModule } from './todos/todos.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { NotesModule } from './notes/notes.module';
+import { PetModule } from './pet/pet.module';
 import config from './ormconfig';
 
 @Module({
@@ -21,6 +22,7 @@ import config from './ormconfig';
     TodosModule,
     NotificationsModule,
     NotesModule,
+    PetModule,
     JwtModule.register({
       secret: jwtConstants.secret,
       signOptions: { expiresIn: '60s' },
@@ -28,6 +30,7 @@ import config from './ormconfig';
     TodosModule,
     NotificationsModule,
     NotesModule,
+    PetModule,
   ],
   controllers: [AppController, TodosController],
   providers: [AppService, TodosService],
