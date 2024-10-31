@@ -17,6 +17,7 @@ import { AdventuresModule } from './adventures/adventures.module';
 import { MediaController } from './media/media.controller';
 import { MediaService } from './media/media.service';
 import { MediaModule } from './media/media.module';
+import { ProgressModule } from './progress/progress.module';
 import config from './ormconfig';
 
 @Module({
@@ -34,6 +35,7 @@ import config from './ormconfig';
       secret: jwtConstants.secret,
       signOptions: { expiresIn: '60s' },
     }),
+    ProgressModule,
   ],
   controllers: [AppController],
   providers: [AppService],
