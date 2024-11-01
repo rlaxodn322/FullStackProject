@@ -3,6 +3,8 @@ import { User } from './user.entity';
 import { DeleteResult, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 
+import { CreateUserDto } from './dto/create-user.dto';
+
 @Injectable()
 export class UserService {
   // 사용자 관련 비즈니스 로직 작성
@@ -10,6 +12,7 @@ export class UserService {
     @InjectRepository(User)
     private userRepository: Repository<User>,
   ) {}
+
   findAll(): Promise<User[]> {
     return this.userRepository.find({ relations: ['todo'] });
   }
