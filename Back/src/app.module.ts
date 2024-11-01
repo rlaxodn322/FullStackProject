@@ -17,6 +17,8 @@ import { EventsModule } from './events/events.module';
 import { ReservationsModule } from './reservations/reservations.module';
 import { FeedbacksModule } from './feedbacks/feedbacks.module';
 import { RecipeModule } from './recipe/recipe.module';
+import { CommentModule } from './comment/comment.module';
+import { RatingModule } from './rating/rating.module';
 import config from './ormconfig';
 
 @Module({
@@ -39,6 +41,8 @@ import config from './ormconfig';
     ReservationsModule,
     FeedbacksModule,
     RecipeModule,
+    CommentModule,
+    RatingModule,
   
   ],
   controllers: [AppController],
