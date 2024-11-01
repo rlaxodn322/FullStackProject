@@ -20,10 +20,18 @@ import { RecipeModule } from './recipe/recipe.module';
 import { CommentModule } from './comment/comment.module';
 import { RatingModule } from './rating/rating.module';
 import config from './ormconfig';
+import { GraphQLModule } from '@nestjs/graphql';
+import { BookModule } from './book/book.module';
+import { ApolloDriver } from '@nestjs/apollo';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({ ...config }),
+    GraphQLModule.forRoot({
+      autoSchemaFile: true,
+      playfround: true,
+      driver: ApolloDriver,
+    }),
     AuthModule,
     UserModule,
     TodosModule,
@@ -43,7 +51,7 @@ import config from './ormconfig';
     RecipeModule,
     CommentModule,
     RatingModule,
-  
+    BookModule,
   ],
   controllers: [AppController],
   providers: [AppService],
